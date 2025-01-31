@@ -1,0 +1,44 @@
+import math
+import time
+from turtle import *
+
+def hearta(k):
+    return 15 * math.sin(k) ** 3
+
+def heartb(k):
+    return 12 * math.cos(k) - 5 * math.cos(2 * k) - 2 * math.cos(3 * k) - math.cos(4 * k)
+
+def type_text(message, y, font_size=10, delay=0.04):
+    penup()
+    color("white")
+
+    # **Calculate text width to center it**
+    text_width = len(message) * (font_size * 0.6)  # Approximate letter width
+    start_x = -text_width / 2  # Centering calculation
+
+    goto(start_x, y)  # Move to calculated starting position
+
+    for letter in message:
+        write(letter, move=True, align="left", font=("Arial", font_size, "normal"))
+        time.sleep(delay)  # Typing effect delay
+
+# **Setup turtle**
+speed(200)
+bgcolor("black")
+
+# **Typing animation for the message**
+message = "goodnight my pretty langga, miss na kita sobra :("
+type_text(message, 130, font_size=10, delay=0.04)  # Centered text
+
+# **Draw the heart**
+color("pink")  
+penup()
+goto(0, -150)  
+pendown()
+
+for i in range(6000):
+    goto(hearta(i) * 15, heartb(i) * 15 - 80)  
+    goto(0, -150)
+
+hideturtle()
+done()
