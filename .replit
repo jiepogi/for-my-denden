@@ -1,0 +1,6 @@
+run = "echo \"# for-my-denden\" >> README.md git init git add README.md git commit -m \"first commit\" git branch -M main git remote add origin https://github.com/jiepogi/for-my-denden.git git push -u origin main"
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "echo \"# for-my-denden\" >> README.md git init git add README.md git commit -m \"first commit\" git branch -M main git remote add origin https://github.com/jiepogi/for-my-denden.git git push -u origin main"]
